@@ -1,0 +1,46 @@
+board=[]
+for i in range(20):
+	board.append(["."]*20)
+print "Welcome!"
+def printer(board):
+	for row in board:
+		print " ".join(row)
+board_y = 19
+board_x = 0
+board[10][5] = "H"
+turn = 0
+while turn <= 200:
+	print turn + 1
+	def player(board):
+		board[board_y][board_x] = "X"
+		printer(board)
+	print player(board)
+	move = raw_input("w, a, s, d? ")
+	while move.lower() != "w" and move.lower() != "a" and move.lower() != "s" and move.lower() != "d":
+		move = raw_input("Wrong! ")
+	if move.lower() == "w":
+		board[board_y][board_x] = "."
+		board_y -= 1
+		print player(board)
+	if move.lower() == "a":
+		board[board_y][board_x] = "."
+		board_x -= 1
+		print player(board)
+	if move.lower() == "s":
+		board[board_y][board_x] = "."
+		board_y += 1
+		print player(board)
+	if move.lower() == "d":
+		board[board_y][board_x] = "."
+		board_x += 1
+		print player(board)
+	print
+	print player(board)
+	if board[10][5] == "X":
+		print "Hello!"
+		print "Hello!"
+		print "Hello!"
+		print "Hello!"
+		print "Hello!"
+		print "Hello!"
+	turn += 1
